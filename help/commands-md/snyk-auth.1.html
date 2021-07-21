@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv='content-type' content='text/html;charset=utf8'>
+  <meta name='generator' content='Ronn-NG/v0.9.1 (http://github.com/apjanke/ronn-ng/tree/0.9.1)'>
+  <title>snyk-auth(1) - Authenticate Snyk CLI with a Snyk account</title>
+  <style type='text/css' media='all'>
+  /* style: man */
+  body#manpage {margin:0}
+  .mp {max-width:100ex;padding:0 9ex 1ex 4ex}
+  .mp p,.mp pre,.mp ul,.mp ol,.mp dl {margin:0 0 20px 0}
+  .mp h2 {margin:10px 0 0 0}
+  .mp > p,.mp > pre,.mp > ul,.mp > ol,.mp > dl {margin-left:8ex}
+  .mp h3 {margin:0 0 0 4ex}
+  .mp dt {margin:0;clear:left}
+  .mp dt.flush {float:left;width:8ex}
+  .mp dd {margin:0 0 0 9ex}
+  .mp h1,.mp h2,.mp h3,.mp h4 {clear:left}
+  .mp pre {margin-bottom:20px}
+  .mp pre+h2,.mp pre+h3 {margin-top:22px}
+  .mp h2+pre,.mp h3+pre {margin-top:5px}
+  .mp img {display:block;margin:auto}
+  .mp h1.man-title {display:none}
+  .mp,.mp code,.mp pre,.mp tt,.mp kbd,.mp samp,.mp h3,.mp h4 {font-family:monospace;font-size:14px;line-height:1.42857142857143}
+  .mp h2 {font-size:16px;line-height:1.25}
+  .mp h1 {font-size:20px;line-height:2}
+  .mp {text-align:justify;background:#fff}
+  .mp,.mp code,.mp pre,.mp pre code,.mp tt,.mp kbd,.mp samp {color:#131211}
+  .mp h1,.mp h2,.mp h3,.mp h4 {color:#030201}
+  .mp u {text-decoration:underline}
+  .mp code,.mp strong,.mp b {font-weight:bold;color:#131211}
+  .mp em,.mp var {font-style:italic;color:#232221;text-decoration:none}
+  .mp a,.mp a:link,.mp a:hover,.mp a code,.mp a pre,.mp a tt,.mp a kbd,.mp a samp {color:#0000ff}
+  .mp b.man-ref {font-weight:normal;color:#434241}
+  .mp pre {padding:0 4ex}
+  .mp pre code {font-weight:normal;color:#434241}
+  .mp h2+pre,h3+pre {padding-left:0}
+  ol.man-decor,ol.man-decor li {margin:3px 0 10px 0;padding:0;float:left;width:33%;list-style-type:none;text-transform:uppercase;color:#999;letter-spacing:1px}
+  ol.man-decor {width:100%}
+  ol.man-decor li.tl {text-align:left}
+  ol.man-decor li.tc {text-align:center;letter-spacing:4px}
+  ol.man-decor li.tr {text-align:right;float:right}
+  </style>
+</head>
+<!--
+  The following styles are deprecated and will be removed at some point:
+  div#man, div#man ol.man, div#man ol.head, div#man ol.man.
+
+  The .man-page, .man-decor, .man-head, .man-foot, .man-title, and
+  .man-navigation should be used instead.
+-->
+<body id='manpage'>
+  <div class='mp' id='man'>
+
+  <div class='man-navigation' style='display:none'>
+    <a href="#NAME">NAME</a>
+    <a href="#SYNOPSIS">SYNOPSIS</a>
+    <a href="#DESCRIPTION">DESCRIPTION</a>
+    <a href="#OPTIONS">OPTIONS</a>
+    <a href="#EXIT-CODES">EXIT CODES</a>
+    <a href="#ENVIRONMENT">ENVIRONMENT</a>
+    <a href="#NOTICES">NOTICES</a>
+  </div>
+
+  <ol class='man-decor man-head man head'>
+    <li class='tl'>snyk-auth(1)</li>
+    <li class='tc'></li>
+    <li class='tr'>snyk-auth(1)</li>
+  </ol>
+
+  
+
+<h2 id="NAME">NAME</h2>
+<p class="man-name">
+  <code>snyk-auth</code> - <span class="man-whatis">Authenticate Snyk CLI with a Snyk account</span>
+</p>
+<h2 id="SYNOPSIS">SYNOPSIS</h2>
+
+<p><code>snyk</code> <code>auth</code> [<var>API_TOKEN</var>] [<var>OPTIONS</var>]</p>
+
+<h2 id="DESCRIPTION">DESCRIPTION</h2>
+
+<p>Authenticate Snyk CLI with a Snyk account. Running <code>$ snyk auth</code> without an <var>API_TOKEN</var> will open a browser window and asks you to login with Snyk account and authorize. When inputting an <var>API_TOKEN</var>, it will be validated with Snyk API.</p>
+
+<p>When running in a CI environment <var>API_TOKEN</var> is required.</p>
+
+<h2 id="OPTIONS">OPTIONS</h2>
+
+<dl>
+<dt>[<var>API_TOKEN</var>]</dt>
+<dd>Your Snyk token. May be an user token or a service account.<br>
+<a href="https://snyk.co/ucT6J">How to get your account token</a><br>
+<a href="https://snyk.co/ucT6L">How to use Service Accounts</a><br>
+</dd>
+</dl>
+
+<h3 id="Flags-available-accross-all-commands">Flags available accross all commands</h3>
+
+<dl>
+<dt><code>--insecure</code></dt>
+<dd>Ignore unknown certificate authorities.</dd>
+<dt><code>-d</code></dt>
+<dd>Output debug logs.</dd>
+<dt>
+<code>--quiet</code>, <code>-q</code>
+</dt>
+<dd>Silence all output.</dd>
+<dt>
+<code>--version</code>, <code>-v</code>
+</dt>
+<dd>Prints versions.</dd>
+<dt>[<var>COMMAND</var>] <code>--help</code>, <code>--help</code> [<var>COMMAND</var>], <code>-h</code>
+</dt>
+<dd>Prints a help text. You may specify a <var>COMMAND</var> to get more details.</dd>
+</dl>
+
+<h2 id="EXIT-CODES">EXIT CODES</h2>
+
+<p>Possible exit codes and their meaning:</p>
+
+<p><strong>0</strong>: success, no vulns found<br>
+<strong>1</strong>: action_needed, vulns found<br>
+<strong>2</strong>: failure, try to re-run command<br>
+<strong>3</strong>: failure, no supported projects detected<br></p>
+
+<h2 id="ENVIRONMENT">ENVIRONMENT</h2>
+
+<p>You can set these environment variables to change CLI run settings. These keys will override settings in your <code>snyk config</code>:</p>
+
+<dl>
+<dt><code>SNYK_TOKEN</code></dt>
+<dd>Snyk authorization token. Setting this envvar will override the token that may be available in your <code>snyk config</code> settings.
+
+    <p><a href="https://snyk.co/ucT6J">How to get your account token</a><br>
+<a href="https://snyk.co/ucT6L">How to use Service Accounts</a><br></p>
+</dd>
+<dt><code>SNYK_API</code></dt>
+<dd>Sets API host to use for Snyk requests. Useful for on-premise instances and configuring proxies.</dd>
+<dt><code>SNYK_CFG_&lt;KEY&gt;</code></dt>
+<dd>Allows you to override any key that's also available as <code>snyk config</code> option.</dd>
+</dl>
+
+<h2 id="NOTICES">NOTICES</h2>
+
+<h3 id="Snyk-API-usage-policy">Snyk API usage policy</h3>
+
+<p>The use of Snyk's API, whether through the use of the 'snyk' npm package or otherwise, is subject to the <a href="https://snyk.co/ucT6N">terms &amp; conditions</a></p>
+
+  <ol class='man-decor man-foot man foot'>
+    <li class='tl'></li>
+    <li class='tc'>November 2020</li>
+    <li class='tr'>snyk-auth(1)</li>
+  </ol>
+
+  </div>
+</body>
+</html>

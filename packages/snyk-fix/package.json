@@ -16,7 +16,7 @@
     "test": "test"
   },
   "bin": {
-    "snyk-fix": "dist/index.js"
+    "snyk-fix": "bin/snyk-fix"
   },
   "engines": {
     "node": ">=10"
